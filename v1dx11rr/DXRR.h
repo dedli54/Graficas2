@@ -66,8 +66,6 @@ public:
 	ModeloRR* Casa3;
 	ModeloRR* Piramide;
 	ModeloRR* Pozo;
-	ModeloRR* Pilot;
-	ModeloRR* Driver;
 	ModeloRR* Cart;
 
 	ModeloRR* demon;
@@ -193,13 +191,11 @@ public:
 		bridge = new ModeloRR(d3dDevice, d3dContext, "Assets/bridge/Bridge.obj", L"Assets/bridge/BridgeColor.png", L"Assets/noSpecMap.jpg", 120, -35);
 		bridge2 = new ModeloRR(d3dDevice, d3dContext, "Assets/bridge/Bridge.obj", L"Assets/bridge/BridgeColor.png", L"Assets/noSpecMap.jpg", -90, 40);
 		roca = new ModeloRR(d3dDevice, d3dContext, "Assets/roca/roca.obj", L"Assets/roca/colorroca.png", L"Assets/noSpecMap.jpg", 20, 45);
-		Piramide = new ModeloRR(d3dDevice, d3dContext, "Assets/Piramide/Piramide.obj", L"Assets/Piramide/Piramide.png", L"Assets/noSpecMap.jpg", 20, 80);
+		Piramide = new ModeloRR(d3dDevice, d3dContext, "Assets/Piramide/Piramide.obj", L"Assets/Piramide/Piramide.png", L"Assets/noSpecMap.jpg", -10, -75);
 		Pozo = new ModeloRR(d3dDevice, d3dContext, "Assets/Pozo/Pozo.obj", L"Assets/Pozo/Pozo.png", L"Assets/noSpecMap.jpg", 35, 60);
 		Casa = new ModeloRR(d3dDevice, d3dContext, "Assets/Casas/Casa1.obj", L"Assets/Casas/Casa.png", L"Assets/noSpecMap.jpg", 55, 55);
 		Casa2 = new ModeloRR(d3dDevice, d3dContext, "Assets/Casas/Casa2.obj", L"Assets/Casas/Casa.png", L"Assets/noSpecMap.jpg", 45, 95);
 		Casa3 = new ModeloRR(d3dDevice, d3dContext, "Assets/Casas/Casa3.obj", L"Assets/Casas/Casa.png", L"Assets/noSpecMap.jpg", 75, 120);
-		Pilot = new ModeloRR(d3dDevice, d3dContext, "Assets/Pilot/Pilot.obj", L"Assets/Pilot/Pilot.png", L"Assets/noSpecMap.jpg", 95, 100);
-		Driver = new ModeloRR(d3dDevice, d3dContext, "Assets/Pilot/Driver.obj", L"Assets/Pilot/Driver.png", L"Assets/noSpecMap.jpg", 95, 110);
 		//Cart = new ModeloRR(d3dDevice, d3dContext, "Assets/Pilot/Cart.obj", L"Assets/Pilot/Cart.png", L"Assets/noSpecMap.jpg", 100, 110);
 
 		demon = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"Assets/noSpecMap.jpg", 110, 110);
@@ -630,8 +626,6 @@ public:
 		Casa->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Casa->colorChange, 10.0f, 0, 'A', 1.5, colisionColor);
 		Casa2->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Casa2->colorChange, 10.0f, 0, 'A', 1.5, colisionColor);
 		Casa3->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Casa3->colorChange, 10.0f, 0, 'A', 1.5, colisionColor);
-		Pilot->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Pilot->colorChange, 10.0f, 0, 'A', 0.02, colisionColor);
-		Driver->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 9, camara->posCam, Driver->colorChange, 10.0f, 0, 'A', 0.01, colisionColor);
 		
 
 		demon->setPosX(demonPx);
