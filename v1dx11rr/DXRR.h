@@ -71,6 +71,10 @@ public:
 	ModeloRR* Cart;
 
 	ModeloRR* demon;
+	ModeloRR* demon1;
+	ModeloRR* demon2;
+
+
 	ModeloRR* escudo1;
 	ModeloRR* acha;
 	ModeloRR* stump;
@@ -95,6 +99,12 @@ public:
 	//demonio follow
 	float demonPx = 96;
 	float demonPz = 43;
+
+	float demonPx1 = -80;
+	float demonPz1 = -45;
+
+	float demonPx2 = 0;
+	float demonPz2 = 0;
 
 
 	float rotCam;
@@ -193,6 +203,9 @@ public:
 		//Cart = new ModeloRR(d3dDevice, d3dContext, "Assets/Pilot/Cart.obj", L"Assets/Pilot/Cart.png", L"Assets/noSpecMap.jpg", 100, 110);
 
 		demon = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"Assets/noSpecMap.jpg", 110, 110);
+		demon1 = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"Assets/noSpecMap.jpg", 110, 110);
+		demon2 = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"Assets/noSpecMap.jpg", 110, 110);
+
 		escudo1 = new ModeloRR(d3dDevice, d3dContext, "model/escudo1/escudo1.obj", L"model/escudo1/escudo1.bmp", L"Assets/noSpecMap.jpg", 100, 110);
 		acha = new ModeloRR(d3dDevice, d3dContext, "model/acha/acha.obj", L"model/acha/acha.bmp", L"Assets/noSpecMap.jpg", 100, 110);
 		stump = new ModeloRR(d3dDevice, d3dContext, "model/stump/stump.obj", L"model/stump/stump.bmp", L"Assets/noSpecMap.jpg", 100, 110);
@@ -642,6 +655,52 @@ public:
 		{
 			demonPz -= 0.05;
 		}
+
+		demon1->setPosX(demonPx1);
+		demon1->setPosZ(demonPz1);
+		demon1->Draw(camara->vista, camara->proyeccion, terreno->Superficie(demon1->getPosX(), demon1->getPosZ()), camara->posCam, demon1->colorChange, 10.0f, (270 * (XM_PI / 180)) * -1 + rotCam, 'Y', 1, true, true, tipoVista);
+
+		if (posicionX > demonPx1)
+		{
+			demonPx1 += 0.05;
+		}
+		if (posicionX < demonPx1)
+		{
+			demonPx1 -= 0.05;
+		}
+
+		if (posicionZ > demonPz1)
+		{
+			demonPz1 += 0.05;
+		}
+		if (posicionZ < demonPz1)
+		{
+			demonPz1 -= 0.05;
+		}
+
+		demon2->setPosX(demonPx2);
+		demon2->setPosZ(demonPz2);
+		demon2->Draw(camara->vista, camara->proyeccion, terreno->Superficie(demon2->getPosX(), demon2->getPosZ()), camara->posCam, demon2->colorChange, 10.0f, (270 * (XM_PI / 180)) * -1 + rotCam, 'Y', 1, true, true, tipoVista);
+
+		if (posicionX > demonPx2)
+		{
+			demonPx2 += 0.05;
+		}
+		if (posicionX < demonPx2)
+		{
+			demonPx2 -= 0.05;
+		}
+
+		if (posicionZ > demonPz2)
+		{
+			demonPz2 += 0.05;
+		}
+		if (posicionZ < demonPz2)
+		{
+			demonPz2 -= 0.05;
+		}
+
+
 		stump->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, stump->colorChange, 10.0f, 0, 'A', 1, colisionColor);
 		tree->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, tree->colorChange, 10.0f, 0, 'A', 1, colisionColor);
 		lamp->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, lamp->colorChange, 10.0f, 0, 'A', 1, colisionColor);
