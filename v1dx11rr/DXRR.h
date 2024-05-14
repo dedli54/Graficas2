@@ -621,7 +621,7 @@ public:
 		bridge->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20)+1, camara->posCam, bridge->colorChange ,10.0f, 190, 'Y',  6, colisionColor);
 		bridge2->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20)+1, camara->posCam, bridge2->colorChange, 10.0f, 100, 'Y',  10, colisionColor);
 		roca->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20)+4, camara->posCam, roca->colorChange,10.0f, 0, 'A',  4, colisionColor);
-		Piramide->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, Piramide->colorChange, 10.0f, 0, 'A', 2, colisionColor);
+		Piramide->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Piramide->getPosX(),Piramide->getPosZ()), camara->posCam, Piramide->colorChange, 10.0f, 0, 'A', 2, colisionColor);
 		Pozo->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20)+5, camara->posCam, Pozo->colorChange, 10.0f, 0, 'A', 2, colisionColor);
 		Casa->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Casa->colorChange, 10.0f, 0, 'A', 1.5, colisionColor);
 		Casa2->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Casa2->colorChange, 10.0f, 0, 'A', 1.5, colisionColor);
