@@ -92,6 +92,11 @@ public:
 	float vel;
 	float velIzqDer;
 
+	//demonio follow
+	float demonPx = 96;
+	float demonPz = 43;
+
+
 	float rotCam;
 	bool breakpoint;
 	vector2 uv1[32];
@@ -187,7 +192,7 @@ public:
 		Driver = new ModeloRR(d3dDevice, d3dContext, "Assets/Pilot/Driver.obj", L"Assets/Pilot/Driver.png", L"Assets/noSpecMap.jpg", 95, 110);
 		//Cart = new ModeloRR(d3dDevice, d3dContext, "Assets/Pilot/Cart.obj", L"Assets/Pilot/Cart.png", L"Assets/noSpecMap.jpg", 100, 110);
 
-		demon = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"Assets/noSpecMap.jpg", 100, 110);
+		demon = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"Assets/noSpecMap.jpg", 110, 110);
 		escudo1 = new ModeloRR(d3dDevice, d3dContext, "model/escudo1/escudo1.obj", L"model/escudo1/escudo1.bmp", L"Assets/noSpecMap.jpg", 100, 110);
 		acha = new ModeloRR(d3dDevice, d3dContext, "model/acha/acha.obj", L"model/acha/acha.bmp", L"Assets/noSpecMap.jpg", 100, 110);
 		stump = new ModeloRR(d3dDevice, d3dContext, "model/stump/stump.obj", L"model/stump/stump.bmp", L"Assets/noSpecMap.jpg", 100, 110);
@@ -508,31 +513,31 @@ public:
 			}
 		}
 
-		bool colidemon = isPointInsideSphereDemon(camara->getPoint(), demon->GetSphere(5));
-		if (vida > 0) {
-			if (colidemon) {
-				camara->posCam = camara->posCamPast;
-				camara->posCam3P = camara->posCam3PPast;
+		//bool colidemon = isPointInsideSphereDemon(camara->getPoint(), demon->GetSphere(5));
+		//if (vida > 0) {
+		//	if (colidemon) {
+		//		camara->posCam = camara->posCamPast;
+		//		camara->posCam3P = camara->posCam3PPast;
 
-				colisionColor = true;
-
-
-				if (!pegodemon) {
-					vida = vida - 1;
-					pegobanana = true;
-					if (!audiohitdemon) {
-						m_XACT3.m_pSoundBank->Play(cueIndexHit, 0, 0, 0);
-						audiohitdemon = true;
-
-					}
-				}
-			}
-			else {
-				colisionColor = false;
+		//		colisionColor = true;
 
 
-			}
-		}
+		//		if (!pegodemon) {
+		//			vida = vida - 1;
+		//			pegobanana = true;
+		//			if (!audiohitdemon) {
+		//				m_XACT3.m_pSoundBank->Play(cueIndexHit, 0, 0, 0);
+		//				audiohitdemon = true;
+
+		//			}
+		//		}
+		//	}
+		//	else {
+		//		colisionColor = false;
+
+
+		//	}
+		//}
 
 
 
@@ -615,7 +620,28 @@ public:
 		Pilot->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Pilot->colorChange, 10.0f, 0, 'A', 0.02, colisionColor);
 		Driver->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 9, camara->posCam, Driver->colorChange, 10.0f, 0, 'A', 0.01, colisionColor);
 		
-		demon->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, demon->colorChange, 10.0f, 0, 'A', 1, colisionColor);
+
+		demon->setPosX(demonPx);
+		demon->setPosZ(demonPz);
+		demon->Draw(camara->vista, camara->proyeccion, terreno->Superficie(demon->getPosX(), demon->getPosZ()), camara->posCam, demon->colorChange, 10.0f, (270 * (XM_PI / 180))*-1 + rotCam, 'Y', 1, true, true, tipoVista);
+
+		if (posicionX > demonPx)
+		{
+			demonPx += 0.05;
+		}
+		if (posicionX < demonPx)
+		{
+			demonPx -= 0.05;
+		}
+
+		if (posicionZ > demonPz)
+		{
+			demonPz += 0.05;
+		}
+		if (posicionZ < demonPz)
+		{
+			demonPz -= 0.05;
+		}
 		stump->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, stump->colorChange, 10.0f, 0, 'A', 1, colisionColor);
 		tree->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, tree->colorChange, 10.0f, 0, 'A', 1, colisionColor);
 		lamp->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, lamp->colorChange, 10.0f, 0, 'A', 1, colisionColor);

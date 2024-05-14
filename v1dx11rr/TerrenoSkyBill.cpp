@@ -50,8 +50,7 @@ void createKeyboardDevice(HWND hWnd) {
 int WINAPI WinMain(HINSTANCE hInstance,
                    HINSTANCE hPrevInstance,
                    LPSTR lpCmdLine,
-                   int nCmdShow)
-{
+                   int nCmdShow){
     HWND hWnd;
     WNDCLASSEX wc;
     DEVMODE dmScreenSettings;

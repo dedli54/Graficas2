@@ -429,6 +429,7 @@ public:
 
 	void Draw(D3DXMATRIX vista, D3DXMATRIX proyeccion, float ypos, D3DXVECTOR3 posCam, float colorChange, float specForce, float rot, char angle, float scale, bool colisionColor, bool sigueCamara = false, bool tipoVista = true)
 	{
+
 		if (colisionColor) {
 			m_color.x = 0.8;
 			m_color.y = 0.8;
