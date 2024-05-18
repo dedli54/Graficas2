@@ -1,7 +1,7 @@
 // ObjParser.cpp : Implements the CObjParser class.
 //
 //
-// test
+// test sisi jajaja
 
 #include <stdio.h>
 #include <string.h>
