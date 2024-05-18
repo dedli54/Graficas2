@@ -494,6 +494,8 @@ public:
 			
 		}
 
+		
+
 
 
 		bool coliplatano = isPointInsideSphereBanana(camara->getPoint(), banana->GetSphere(5));
@@ -803,6 +805,7 @@ public:
 		return collition;
 	}
 
+
 	bool isPointInsideSphere2(float* point, float* sphere) {
 		bool collition = false;
 
@@ -890,8 +893,6 @@ public:
 		}
 		return collition;
 	}
-
-
 
 	//Activa el alpha blend para dibujar con transparencias
 	void TurnOnAlphaBlending()

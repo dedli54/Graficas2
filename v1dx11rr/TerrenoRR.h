@@ -67,7 +67,7 @@ public:
 		this->ancho = ancho;
 		this->alto = alto;
 		//aqui cargamos las texturas de alturas y el cesped
-		CargaParametros(L"terrain1.jpg", L"alturas.jpg", 50.0f);
+		CargaParametros(L"terrain1.jpg", L"MapaAltura4.png", 50.0f);
 	}
 
 	~TerrenoRR()
@@ -247,7 +247,7 @@ public:
 		//crea los accesos de las texturas para los shaders 
 		d3dResult = D3DX11CreateShaderResourceViewFromFile( d3dDevice, diffuseTex, 0, 0, &colorMap, 0 );
 		d3dResult = D3DX11CreateShaderResourceViewFromFile( d3dDevice, L"terrain3.png", 0, 0, &colorMap2, 0 );
-		d3dResult = D3DX11CreateShaderResourceViewFromFile( d3dDevice, L"alturas.jpg", 0, 0, &blendMap, 0 );
+		d3dResult = D3DX11CreateShaderResourceViewFromFile( d3dDevice, L"MapaAltura4.png", 0, 0, &blendMap, 0 );
 
 		if( FAILED( d3dResult ) )
 		{
