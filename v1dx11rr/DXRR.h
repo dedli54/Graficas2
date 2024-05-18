@@ -67,7 +67,7 @@ public:
 	ModeloRR* Piramide;
 	ModeloRR* Pozo;
 	ModeloRR* Cart;
-
+	//TESTO
 	ModeloRR* demon;
 	ModeloRR* demon1;
 	ModeloRR* demon2;
