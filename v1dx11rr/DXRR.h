@@ -53,6 +53,7 @@ public:
 	//Nuevos bilboards
 	BillboardRR* arbol;
 	BillboardRR* cesped1;
+	BillboardRR* cesped2;
 
 
 
@@ -84,6 +85,9 @@ public:
 	ModeloRR* tree;
 	ModeloRR* lamp;
 	ModeloRR* cuerno;
+
+	//Modelos nuevos
+	ModeloRR* Personaje;
 
 	GUI* fullcorazones;
 	GUI* doscorazones;
@@ -220,6 +224,8 @@ public:
 
 		agua = new ModeloRR(d3dDevice, d3dContext, "Assets/rio/rio.obj", L"Assets/rio/water.png", L"Assets/noSpecMap.jpg", 0, 0, true);
 
+		//Nuevos modelos
+		Personaje =  new ModeloRR(d3dDevice, d3dContext, "Assets/personaje/personaje.obj", L"Assets/personaje/TexturaPersonaje.png", L"Assets/noSpecMap.jpg", 0, 0, true);
 	
 
 		velIzqDer = 0;
@@ -259,6 +265,7 @@ public:
 		// ================ BILBOARDS NUEVOS ===============0
 		arbol = new BillboardRR(L"Assets/Billboards/tree.png", L"Assets/noSpecMap.jpg", d3dDevice, d3dContext, 10);
 		cesped1 = new BillboardRR(L"Assets/Billboards/hierba.png", L"Assets/noSpecMap.jpg", d3dDevice, d3dContext, 10);
+		cesped2 = new BillboardRR(L"Assets/Billboards/hierba2.png", L"Assets/noSpecMap.jpg", d3dDevice, d3dContext, 10);
 
 	}
 
@@ -642,8 +649,15 @@ public:
 		arbol->Draw(camara->vista, camara->proyeccion, camara->posCam, -58, 13, 19, 14, false);
 
 		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 0, 0, 14, 3, false);
+		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 46, -92, 14, 3, false);
+		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 46, 4, 14, 3, false);
+		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 117, 28, 14, 3, false);
 
- 	
+		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, 10, 28, 14, 3, false);
+		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, 65, 58, 14, 3, false);
+		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, -55, -101, 14, 3, false);
+		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, -110, -25, 14, 3, false);
+
 	
 		//TurnOffAlphaBlending();
 		//model->Draw(camara->vista, camara->proyeccion, terreno->Superficie(100, 20), camara->posCam, 10.0f, 0, 'A', 1);
@@ -661,8 +675,8 @@ public:
 		
 		//bridge2->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20)+1, camara->posCam, bridge2->colorChange, 10.0f, 100, 'Y',  10, colisionColor);
 		
-		roca->setPosX(77.79f);
-		roca->setPosZ(4.99f);
+		roca->setPosX(104.79f);
+		roca->setPosZ(9.15f);
 		roca->Draw(camara->vista, camara->proyeccion, terreno->Superficie(roca->getPosX(), roca->getPosZ()), camara->posCam, roca->colorChange, 0.0f, 0, 'A', 4, colisionColor);
 		
 		Piramide->setPosX(-99.5f);
@@ -685,6 +699,9 @@ public:
 		Casa3->setPosZ(-11.49f);
 		Casa3->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Casa3->getPosX(), Casa3->getPosZ()), camara->posCam, Casa3->colorChange, 0.0f, 0, 'A', 1.5, colisionColor);
 		
+		Personaje->setPosX(0.0f);
+		Personaje->setPosZ(0.0f);
+		Personaje->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Personaje->getPosX(), Personaje->getPosZ()), camara->posCam, Casa3->colorChange, 0.0f, 0, 'A', 2, colisionColor);
 
 		demon->setPosX(demonPx);
 		demon->setPosZ(demonPz);
