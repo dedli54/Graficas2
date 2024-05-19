@@ -132,6 +132,8 @@ public:
 	bool gano;
 
 	Text* texto;
+	Text* coords;
+
 
 	float tiempo;
 
@@ -234,6 +236,9 @@ public:
 		victoria = new GUI(d3dDevice, d3dContext, 0.7, 0.7, L"Assets/GUI/victoria.png");
 
 		texto = new Text(d3dDevice, d3dContext, 3.6, 1.2, L"Assets/GUI/font.png",  XMFLOAT4(0.0f,0.7f,0.2f,1.0f));
+		coords = new Text(d3dDevice, d3dContext, 3.6f, 1.2f, L"Assets/GUI/font.png", XMFLOAT4(0.0f, 1.0f, 0.0f, 0.0f));
+
+
 		gano = false;
 		tiempo = 20;
 		numVuelta = 0;
@@ -766,7 +771,9 @@ public:
 		//TurnOnAlphaBlending();
 		//texto->DrawText(0.5f, 0.7f, "Tiempo: " + texto->Time(tiempo), 0.015);
 		//TurnOffAlphaBlending();
-		agua->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) - 2, camara->posCam, agua->colorChange,10.0f, 0, 'A', 6, colisionColor);
+		//agua->setPosX(120);
+		//agua->setPosZ(141);
+		agua->Draw(camara->vista, camara->proyeccion, terreno->Superficie(120, 141)  + 2, camara->posCam, agua->colorChange, 1.0f, 0, 'A', 6, colisionColor);
 		indiceRio = indiceRio + 1;
 		if (indiceRio < 50) {
 			agua->setPosX(0);
@@ -780,6 +787,19 @@ public:
 			indiceRio = 0;
 		}
 		
+		TurnOnAlphaBlending();
+		stringstream posX;
+		stringstream posZ;
+
+		posX << camara->posCam.x;
+		posZ << camara->posCam.z;
+		coords->DrawText(-0.8f, 0.2f, "PosCamX: " + posX.str(), 0.01f);
+		coords->DrawText(-0.8f, 0.1f, "PosCamZ: " + posZ.str(), 0.01f);
+		//textos->DrawText(-0.8f, 0.3f, "Tiempo: " + textos->Time(tiempo), 0.01f);
+
+		tiempo -= 0.01f;
+		TurnOffAlphaBlending();
+
 
 		swapChain->Present( 1, 0 );
 	}
