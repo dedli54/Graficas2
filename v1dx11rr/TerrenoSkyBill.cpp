@@ -11,8 +11,10 @@
 #pragma comment (lib, "d3dx11.lib")
 #pragma comment (lib, "d3dx10.lib")
 
-#define SCREEN_X 2560 //IMPORTANTE 2560
-#define SCREEN_Y 1440  //CAMBIAR A LA RESOLUCION DE TU MONITOR 1440
+#define SCREEN_X 1920 //IMPORTANTE 2560
+#define SCREEN_Y 1080  //CAMBIAR A LA RESOLUCION DE TU MONITOR 1440
+
+//Monitor abraham es 1920 1080
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
