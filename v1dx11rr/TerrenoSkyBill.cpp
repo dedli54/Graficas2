@@ -19,6 +19,8 @@
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 DXRR *dxrr;
+
+
 GamePadRR *gamePad;
 tagPOINT initialPoint;
 tagPOINT actualPoint;
@@ -201,6 +203,7 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
             m_pKeyboardDevice->GetDeviceState(sizeof(keyboardData), (void*)&keyboardData);
 
             if (keyboardData[DIK_S] & 0x80) {
+             
                 dxrr->vel = -5.f;
             }
 
@@ -228,6 +231,24 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
             if (keyboardData[DIK_E] & 0x80) {
                 dxrr->tipoVista = false;
             }
+
+            if (keyboardData[DIK_T] & 0x80) {
+            
+                if (dxrr->pressT) {
+                  dxrr->upHorse = false;
+
+                }
+
+            }
+
+            if (keyboardData[DIK_Y] & 0x80) {
+
+                    dxrr->upHorse = true;
+              /*      dxrr->antPosCameraX = dxrr->camara->hdveo.x;
+                    dxrr->antPosCameraZ = dxrr->camara->hdveo.z;*/
+            }
+            
+
 
             if (keyboardData[DIK_ESCAPE] & 0x80) {
                 KillTimer(hWnd, 100);

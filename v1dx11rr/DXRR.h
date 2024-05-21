@@ -90,6 +90,7 @@ public:
 	//Modelos nuevos
 	ModeloRR* Personaje;
 	ModeloRR* CasaExp;
+	ModeloRR* Horse;
 	//ModeloRR* Puente2;
 
 	GUI* fullcorazones;
@@ -150,6 +151,12 @@ public:
 	float tiempo;
 
 	bool tipoVista;
+	
+	float antPosCameraX = 0.0f;
+	float antPosCameraZ = 0.0f;
+	bool upHorse;
+	bool pressT;
+	
 	float m_totalTime;
 
 	float posicionX;
@@ -234,7 +241,7 @@ public:
 		//Nuevos modelos
 		Personaje =  new ModeloRR(d3dDevice, d3dContext, "Assets/personaje/personaje.obj", L"Assets/personaje/TexturaPersonaje.png", L"Assets/noSpecMap.jpg", 0, 0, true);
 		//Puente2 = new ModeloRR(d3dDevice, d3dContext, "Assets/muelle/muelle3.obj", L"Assets/Pozo/Pozo.png", L"Assets/Pozo/well2_toSP_low_Default_Metallic.png", 35, 60);
-
+		Horse = new ModeloRR(d3dDevice, d3dContext, "Assets/Caballo/horse.obj", L"Assets/Caballo/Horse.png", L"Assets/Caballo/HorseSpecular.png", 100, 111);
 
 		velIzqDer = 0;
 
@@ -660,6 +667,14 @@ public:
 			camara->posCam3P = camara->posCam3PPast;
 		}
 
+		if (isPointInsideSphereRoca(camara->getPoint(), Horse->GetSphere(5))) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+
+
+
+		}
+
 		//Colisiones de la casa
 		//Pared1
 		if (CuadBoxCollision(10, 13, 30, 64, camara->getPoint())) {
@@ -881,12 +896,25 @@ public:
 		acha->Draw(camara->vista, camara->proyeccion, terreno->Superficie(acha->getPosX(), acha->getPosZ()), camara->posCam, acha->colorChange, 10.0f, 270 * (XM_PI / 180) + rotCam, 'Y', 1, true, true, tipoVista);
 
 		
-		Personaje->setPosX(camara->hdveo.x);
-		Personaje->setPosZ(camara->hdveo.z);
-		Personaje->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Personaje->getPosX(), Personaje->getPosZ()),camara->posCam, Personaje->colorChange, 10.0f, 270 * (XM_PI/180) + rotCam, 'Y', 2,true, true, tipoVista);
+		Personaje->setPosX(10.0f);
+		Personaje->setPosZ(10.0f);
+		Personaje->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Personaje->getPosX(), Personaje->getPosZ()),camara->posCam, Personaje->colorChange, 0.0f, 0, 'A', 2, colisionColor);
 
+		if (upHorse) {
+		  
+		  Horse->setPosX(antPosCameraX);
+		  Horse->setPosZ(antPosCameraZ);
+		  Horse->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Horse->getPosX(), Horse->getPosZ()), camara->posCam, Horse->colorChange, 10.0f, 0, 'A', 0.03f, colisionColor);
 
+		}
+		if (upHorse == false) {
+			antPosCameraX = camara->hdveo.x + 5;
+			antPosCameraZ = camara->hdveo.z + 5;
+			Horse->setPosX(antPosCameraX); //cambiar a la posicion de la camara
+			Horse->setPosZ(antPosCameraZ);
+			Horse->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Horse->getPosX(), Horse->getPosZ()), camara->posCam, Horse->colorChange, 10.0f, 0, 'A', 0.03f, colisionColor);
 
+		}
 
 		//Mario->setPosX(camara->hdveo.x);
 		//Mario->setPosZ(camara->hdveo.z);
@@ -970,6 +998,21 @@ public:
 
 		if (CuadBoxCollision(56,142,79,101,camara->getPoint())) {
 			texto->DrawText(-0.8f, 0.3f, "Saliste del limite ", 0.01f);
+		}
+
+		if (isPointInsideSphereRoca(camara->getPoint(), Horse->GetSphere(6)) && upHorse == true) {
+			texto->DrawText(-0.8f, 0.3f, "Presiona T para subir al caballo", 0.01f);
+
+			pressT = true;
+
+		}
+		else {
+
+			pressT = false;
+		}
+
+		if (upHorse == false) {
+			texto->DrawText(-0.8f, 0.3f, "Presiona Y para bajar del caballo", 0.01f);
 		}
 
 		tiempo -= 0.01f;
