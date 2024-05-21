@@ -257,8 +257,8 @@ public:
 		numVuelta = 0;
 		tipoVista = true;
 
-		arbolJungla = new BillboardRR(L"Assets/Billboards/arboljungla.png", L"Assets/noSpecMap.jpg", d3dDevice, d3dContext, 10);
-		bananero = new BillboardRR(L"Assets/Billboards/bananero.png", L"Assets/noSpecMap.jpg", d3dDevice, d3dContext, 5);
+		//arbolJungla = new BillboardRR(L"Assets/Billboards/arboljungla.png", L"Assets/noSpecMap.jpg", d3dDevice, d3dContext, 10);
+		//bananero = new BillboardRR(L"Assets/Billboards/bananero.png", L"Assets/noSpecMap.jpg", d3dDevice, d3dContext, 5);
 		flecha = new BillboardRR(L"Assets/Billboards/arrow.png", L"Assets/noSpecMap.jpg", d3dDevice, d3dContext, 5);
 		monkey = new BillboardRR(L"Assets/Billboards/monkey.png", L"Assets/noSpecMap.jpg", d3dDevice, d3dContext, 2);
 
@@ -607,9 +607,45 @@ public:
 			camara->posCam3P = camara->posCam3PPast;
 		}
 
+		if (isPointInsideSphereRoca(camara->getPoint(), Casa->GetSphere(8))) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
 
+		if (isPointInsideSphereRoca(camara->getPoint(), Casa2->GetSphere(12))) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
 
+		if (isPointInsideSphereRoca(camara->getPoint(), Casa3->GetSphere(12))) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
 
+		if (isPointInsideSphereRoca(camara->getPoint(), Piramide->GetSphere(21))) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
+		if (isPointInsideSphereRoca(camara->getPoint(), Pozo->GetSphere(6))) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
+		if (isPointInsideSphereRoca(camara->getPoint(), stump->GetSphere(6))) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
+		if (isPointInsideSphereRoca(camara->getPoint(), tree->GetSphere(4))) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
+		if (isPointInsideSphereRoca(camara->getPoint(), lamp->GetSphere(4))) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
 
 		//camara->UpdateCam(vel, velIzqDer, arriaba, izqder);
 		skydome->Update(camara->vista, camara->proyeccion);
@@ -629,10 +665,10 @@ public:
 			-23, -68, 15, 5,true, uv1, uv2, uv3, uv4, frameBillboard);
 
 		flecha->Draw(camara->vista, camara->proyeccion, camara->posCam, 135, 0, 20, 5, false);
-		bananero->Draw(camara->vista, camara->proyeccion, camara->posCam, -10, -75, 20, 5, false);
+		//bananero->Draw(camara->vista, camara->proyeccion, camara->posCam, -10, -75, 20, 5, false);
 		monkey->Draw(camara->vista, camara->proyeccion, camara->posCam, 120, -90, 20, 2, false);
 		
-		arbolJungla->Draw(camara->vista, camara->proyeccion, camara->posCam, 45, 40, 13, 10, false);
+		/*arbolJungla->Draw(camara->vista, camara->proyeccion, camara->posCam, 45, 40, 13, 10, false);*/
 		//arbolJungla->Draw(camara->vista, camara->proyeccion, camara->posCam, -10, -90, 15, 10, false);
 		//arbolJungla->Draw(camara->vista, camara->proyeccion, camara->posCam, -68, -124, 15, 10, false);
 
@@ -654,7 +690,7 @@ public:
 		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 117, 28, 14, 3, false);
 
 		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, 10, 28, 14, 3, false);
-		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, 65, 58, 14, 3, false);
+		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, 65, 58, 8, 3, false);
 		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, -55, -101, 14, 3, false);
 		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, -110, -25, 14, 3, false);
 
@@ -662,7 +698,9 @@ public:
 		//TurnOffAlphaBlending();
 		//model->Draw(camara->vista, camara->proyeccion, terreno->Superficie(100, 20), camara->posCam, 10.0f, 0, 'A', 1);
 		
-		Palmera->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20)+5, camara->posCam, Palmera->colorChange, 10.0f, 0, 'A', 1, colisionColor);
+		Palmera->setPosX(-107.0f);
+		Palmera->setPosZ(-29.0f);
+		Palmera->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Palmera->getPosX(), Palmera->getPosZ()), camara->posCam, Palmera->colorChange, 0.0f, 0, 'A', 1, colisionColor);
 		
 		coco->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, coco->colorChange,10.0f, 0, 'A',  1, colisionColor);
 		banana->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam,banana->colorChange, 10.0f, 0, 'A',  1, colisionColor);
@@ -699,13 +737,24 @@ public:
 		Casa3->setPosZ(-11.49f);
 		Casa3->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Casa3->getPosX(), Casa3->getPosZ()), camara->posCam, Casa3->colorChange, 0.0f, 0, 'A', 1.5, colisionColor);
 		
-		Personaje->setPosX(0.0f);
-		Personaje->setPosZ(0.0f);
-		Personaje->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Personaje->getPosX(), Personaje->getPosZ()), camara->posCam, Casa3->colorChange, 0.0f, 0, 'A', 2, colisionColor);
-
+		stump->setPosX(6.0f);
+		stump->setPosZ(-55.0f);
+		stump->Draw(camara->vista, camara->proyeccion, terreno->Superficie(stump->getPosX(), stump->getPosZ()) - 1, camara->posCam, stump->colorChange, 0.0f, 0, 'A', 1, colisionColor);
+		
+		tree->setPosX(76.0f);
+		tree->setPosZ(-56.0f);
+		tree->Draw(camara->vista, camara->proyeccion, terreno->Superficie(tree->getPosX(), tree->getPosZ()), camara->posCam, tree->colorChange, 0.0f, 0, 'A', 1, colisionColor);
+		
+		lamp->setPosX(-60.0f);
+		lamp->setPosZ(-82.0f);
+		lamp->Draw(camara->vista, camara->proyeccion, terreno->Superficie(lamp->getPosX(), lamp->getPosZ()), camara->posCam, lamp->colorChange, 0.0f, 0, 'A', 1, colisionColor);
+		
+		cuerno->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, cuerno->colorChange, 10.0f, 0, 'A', 1, colisionColor);
+		//Cart->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Cart->colorChange, 10.0f, 0, 'A', 0.5, colisionColor);
 		demon->setPosX(demonPx);
 		demon->setPosZ(demonPz);
 		demon->Draw(camara->vista, camara->proyeccion, terreno->Superficie(demon->getPosX(), demon->getPosZ()), camara->posCam, demon->colorChange, 10.0f, (270 * (XM_PI / 180))*-1 + rotCam, 'Y', 1, true, true, tipoVista);
+
 
 		if (posicionX > demonPx)
 		{
@@ -770,12 +819,6 @@ public:
 		}
 
 
-		stump->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, stump->colorChange, 10.0f, 0, 'A', 1, colisionColor);
-		tree->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, tree->colorChange, 10.0f, 0, 'A', 1, colisionColor);
-		lamp->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, lamp->colorChange, 10.0f, 0, 'A', 1, colisionColor);
-		cuerno->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, cuerno->colorChange, 10.0f, 0, 'A', 1, colisionColor);
-		//Cart->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Cart->colorChange, 10.0f, 0, 'A', 0.5, colisionColor);
-
 		//agua->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20)-2, camara->posCam, 10.0f, 0, 'A', 1);
 		
 
@@ -788,6 +831,14 @@ public:
 		acha->setPosX(camara->hdveo.x);
 		acha->setPosZ(camara->hdveo.z);
 		acha->Draw(camara->vista, camara->proyeccion, terreno->Superficie(acha->getPosX(), acha->getPosZ()), camara->posCam, acha->colorChange, 10.0f, 270 * (XM_PI / 180) + rotCam, 'Y', 1, true, true, tipoVista);
+
+		
+		Personaje->setPosX(camara->hdveo.x);
+		Personaje->setPosZ(camara->hdveo.z);
+		Personaje->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Personaje->getPosX(), Personaje->getPosZ()),camara->posCam, Personaje->colorChange, 10.0f, 270 * (XM_PI/180) + rotCam, 'Y', 2,true, true, tipoVista);
+
+
+
 
 		//Mario->setPosX(camara->hdveo.x);
 		//Mario->setPosZ(camara->hdveo.z);
@@ -815,7 +866,7 @@ public:
 			TurnOffAlphaBlending();
 		}
 
-		if (numVuelta == 1) {
+		/*if (numVuelta == 1) {
 			TurnOnAlphaBlending();
 			lap1->Draw(0.8, 0.8);
 			TurnOffAlphaBlending();
@@ -833,7 +884,7 @@ public:
 			TurnOnAlphaBlending();
 			victoria->Draw(0.0, 0.0);
 			TurnOffAlphaBlending();
-		}
+		}*/
 		
 		//tiempo -= 0.01;
 		//TurnOnAlphaBlending();
@@ -841,6 +892,8 @@ public:
 		//TurnOffAlphaBlending();
 		//agua->setPosX(120);
 		//agua->setPosZ(141);
+
+	
 		agua->Draw(camara->vista, camara->proyeccion, terreno->Superficie(120, 141)  + 2, camara->posCam, agua->colorChange, 1.0f, 0, 'A', 6, colisionColor);
 		indiceRio = indiceRio + 1;
 		if (indiceRio < 50) {
@@ -855,6 +908,8 @@ public:
 			indiceRio = 0;
 		}
 		
+	
+
 		TurnOnAlphaBlending();
 		stringstream posX;
 		stringstream posZ;
