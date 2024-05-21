@@ -489,10 +489,10 @@ public:
 		D3DXMATRIX sigueCamaraAjuste;
 		
 		if (tipoVista) {
-			D3DXMatrixTranslation(&sigueCamaraAjuste, 0.0, 0.0, -1.0);
+			D3DXMatrixTranslation(&sigueCamaraAjuste, 0.0, 0.0, -6.5);
 		}
 		else {
-			D3DXMatrixTranslation(&sigueCamaraAjuste, 0.0, 0.0, 5.0);
+			D3DXMatrixTranslation(&sigueCamaraAjuste, 0.0, 0.0, 0.0);
 		}
 
 		if(angle == 'X')

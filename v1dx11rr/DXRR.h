@@ -86,8 +86,11 @@ public:
 	ModeloRR* lamp;
 	ModeloRR* cuerno;
 
+
 	//Modelos nuevos
 	ModeloRR* Personaje;
+	ModeloRR* CasaExp;
+	//ModeloRR* Puente2;
 
 	GUI* fullcorazones;
 	GUI* doscorazones;
@@ -198,35 +201,40 @@ public:
 
 
 		Palmera = new ModeloRR(d3dDevice, d3dContext, "Assets/palmera/palmera.obj", L"Assets/palmera/colorpalmera.png", L"Assets/noSpecMap.jpg", -80, -45);
-		coco = new ModeloRR(d3dDevice, d3dContext, "Assets/Coco/Coco2.obj", L"Assets/Coco/colorcoco.png", L"Assets/noSpecMap.jpg", ranx, -30);
-		banana = new ModeloRR(d3dDevice, d3dContext, "Assets/banana/banana.obj", L"Assets/banana/color.png", L"Assets/noSpecMap.jpg", 18, 6);
-		banana2 = new ModeloRR(d3dDevice, d3dContext, "Assets/banana/banana.obj", L"Assets/banana/color.png", L"Assets/noSpecMap.jpg", 120, -10);
-		bridge = new ModeloRR(d3dDevice, d3dContext, "Assets/bridge/Bridge.obj", L"Assets/bridge/BridgeColor.png", L"Assets/noSpecMap.jpg", 120, -35);
+		coco = new ModeloRR(d3dDevice, d3dContext, "Assets/Coco/Coco2.obj", L"Assets/Coco/colorcoco.png", L"Assets/Coco/cocoSpecular.png", ranx, -30);
+		banana = new ModeloRR(d3dDevice, d3dContext, "Assets/banana/banana.obj", L"Assets/banana/color.png", L"Assets/banana/bananaSpecular.png", 18, 6);
+		banana2 = new ModeloRR(d3dDevice, d3dContext, "Assets/banana/banana.obj", L"Assets/banana/color.png", L"Assets/banana/bananaSpecular.png", 120, -10);
+		
+		bridge = new ModeloRR(d3dDevice, d3dContext, "Assets/muelle/Muelle3.obj", L"Assets/muelle/Wood060_2K-JPG_Color.jpg", L"Assets/muelle/MuelleSpecular.png", 120, -35);
 		//bridge2 = new ModeloRR(d3dDevice, d3dContext, "Assets/bridge/Bridge.obj", L"Assets/bridge/BridgeColor.png", L"Assets/noSpecMap.jpg", -90, 40);
-		roca = new ModeloRR(d3dDevice, d3dContext, "Assets/roca/roca.obj", L"Assets/roca/colorroca.png", L"Assets/noSpecMap.jpg", 20, 45);
-		Piramide = new ModeloRR(d3dDevice, d3dContext, "Assets/Piramide/Piramide.obj", L"Assets/Piramide/Piramide.png", L"Assets/noSpecMap.jpg", -10, -75);
-		Pozo = new ModeloRR(d3dDevice, d3dContext, "Assets/Pozo/Pozo.obj", L"Assets/Pozo/Pozo.png", L"Assets/noSpecMap.jpg", 35, 60);
-		Casa = new ModeloRR(d3dDevice, d3dContext, "Assets/Casas/Casa1.obj", L"Assets/Casas/Casa.png", L"Assets/noSpecMap.jpg", 55, 55);
-		Casa2 = new ModeloRR(d3dDevice, d3dContext, "Assets/Casas/Casa2.obj", L"Assets/Casas/Casa.png", L"Assets/noSpecMap.jpg", 45, 95);
-		Casa3 = new ModeloRR(d3dDevice, d3dContext, "Assets/Casas/Casa3.obj", L"Assets/Casas/Casa.png", L"Assets/noSpecMap.jpg", 75, 120);
+		roca = new ModeloRR(d3dDevice, d3dContext, "Assets/roca/roca.obj", L"Assets/roca/colorroca.png", L"Assets/roca/especularRock.png", 20, 45);
+		Piramide = new ModeloRR(d3dDevice, d3dContext, "Assets/Piramide/Piramide.obj", L"Assets/Piramide/Piramide.png", L"Assets/Piramide/Piramide.png", -10, -75);
+		Pozo = new ModeloRR(d3dDevice, d3dContext, "Assets/Pozo/Pozo.obj", L"Assets/Pozo/Pozo.png", L"Assets/Pozo/well2_toSP_low_Default_Metallic.png", 35, 60);
+		
+		Casa = new ModeloRR(d3dDevice, d3dContext, "Assets/Casas/Casa1.obj", L"Assets/Casas/Casa.png", L"Assets/Casas/home_hatka_Mixed_AO.png", 55, 55);
+		Casa2 = new ModeloRR(d3dDevice, d3dContext, "Assets/Casas/Casa2.obj", L"Assets/Casas/Casa.png", L"Assets/Casas/home_hatka_Mixed_AO.png", 45, 95);
+		Casa3 = new ModeloRR(d3dDevice, d3dContext, "Assets/Casas/Casa3.obj", L"Assets/Casas/Casa.png", L"Assets/Casas/home_hatka_Mixed_AO.png", 75, 120);
+		CasaExp = new ModeloRR(d3dDevice, d3dContext, "Assets/CasaExplorable/Chapel1.obj", L"Assets/CasaExplorable/Chapel1.png", L"Assets/CasaExplorable/Chape1Specular.png", 75, 120);
+
 		//Cart = new ModeloRR(d3dDevice, d3dContext, "Assets/Pilot/Cart.obj", L"Assets/Pilot/Cart.png", L"Assets/noSpecMap.jpg", 100, 110);
 
-		demon = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"Assets/noSpecMap.jpg", 110, 110);
-		demon1 = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"Assets/noSpecMap.jpg", 110, 110);
-		demon2 = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"Assets/noSpecMap.jpg", 110, 110);
+		demon = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"model/demon/demonSpecular.png", 110, 110);
+		demon1 = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"model/demon/demonSpecular.png", 110, 110);
+		demon2 = new ModeloRR(d3dDevice, d3dContext, "model/demon/demonio.obj", L"model/demon/demonio.png", L"model/demon/demonSpecular.png", 110, 110);
 
-		escudo1 = new ModeloRR(d3dDevice, d3dContext, "model/escudo1/escudo1.obj", L"model/escudo1/escudo1.bmp", L"Assets/noSpecMap.jpg", 100, 110);
-		acha = new ModeloRR(d3dDevice, d3dContext, "model/acha/acha.obj", L"model/acha/acha.bmp", L"Assets/noSpecMap.jpg", 100, 110);
-		stump = new ModeloRR(d3dDevice, d3dContext, "model/stump/stump.obj", L"model/stump/stump.bmp", L"Assets/noSpecMap.jpg", 100, 110);
-		tree = new ModeloRR(d3dDevice, d3dContext, "model/tree/tree.obj", L"model/tree/tree.bmp", L"Assets/noSpecMap.jpg", 100, 111);
-		lamp = new ModeloRR(d3dDevice, d3dContext, "model/lamp/lamp.obj", L"model/lamp/lamp.png", L"Assets/noSpecMap.jpg", 100, 111);
+		escudo1 = new ModeloRR(d3dDevice, d3dContext, "model/escudo1/escudo1.obj", L"model/escudo1/escudo1.bmp", L"model/escudo1/escudoSpecular.png", 100, 110);
+		acha = new ModeloRR(d3dDevice, d3dContext, "model/acha/acha.obj", L"model/acha/acha.bmp", L"model/acha/hachaSpecular.png", 100, 110);
+		stump = new ModeloRR(d3dDevice, d3dContext, "model/stump/stump.obj", L"model/stump/stump.bmp", L"model/stump/stumpspecular.png", 100, 110);
+		tree = new ModeloRR(d3dDevice, d3dContext, "model/tree/tree.obj", L"model/tree/tree.bmp", L"model/tree/treeSpecular.png", 100, 111);
+		lamp = new ModeloRR(d3dDevice, d3dContext, "model/lamp/lamp.obj", L"model/lamp/lamp.png", L"model/lamp/lampSpecular.png", 100, 111);
 		cuerno = new ModeloRR(d3dDevice, d3dContext, "model/cuerno/cuerno.obj", L"model/cuerno/cuerno.bmp", L"Assets/noSpecMap.jpg", 100, 111);
 
 		agua = new ModeloRR(d3dDevice, d3dContext, "Assets/rio/rio.obj", L"Assets/rio/water.png", L"Assets/noSpecMap.jpg", 0, 0, true);
 
 		//Nuevos modelos
 		Personaje =  new ModeloRR(d3dDevice, d3dContext, "Assets/personaje/personaje.obj", L"Assets/personaje/TexturaPersonaje.png", L"Assets/noSpecMap.jpg", 0, 0, true);
-	
+		//Puente2 = new ModeloRR(d3dDevice, d3dContext, "Assets/muelle/muelle3.obj", L"Assets/Pozo/Pozo.png", L"Assets/Pozo/well2_toSP_low_Default_Metallic.png", 35, 60);
+
 
 		velIzqDer = 0;
 
@@ -647,6 +655,42 @@ public:
 			camara->posCam3P = camara->posCam3PPast;
 		}
 
+		if (CuadBoxCollision(56, 142, 79, 101, camara->getPoint())) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
+		//Colisiones de la casa
+		//Pared1
+		if (CuadBoxCollision(10, 13, 30, 64, camara->getPoint())) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
+		//Pared2
+		if (CuadBoxCollision(-19, 9, 30, 33, camara->getPoint())) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
+		//Pared3
+		if (CuadBoxCollision(-29, 9, 60, 64, camara->getPoint())) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
+		//Pared4
+		if (CuadBoxCollision(-29, -27, 45, 64, camara->getPoint())) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
+		//Pared5
+		if (CuadBoxCollision(-27, -19, 43, 45, camara->getPoint())) {
+			camara->posCam = camara->posCamPast;
+			camara->posCam3P = camara->posCam3PPast;
+		}
+
 		//camara->UpdateCam(vel, velIzqDer, arriaba, izqder);
 		skydome->Update(camara->vista, camara->proyeccion);
 
@@ -686,7 +730,7 @@ public:
 
 		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 0, 0, 14, 3, false);
 		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 46, -92, 14, 3, false);
-		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 46, 4, 14, 3, false);
+		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 78, -70, 14, 3, false);
 		cesped1->Draw(camara->vista, camara->proyeccion, camara->posCam, 117, 28, 14, 3, false);
 
 		cesped2->Draw(camara->vista, camara->proyeccion, camara->posCam, 10, 28, 14, 3, false);
@@ -706,48 +750,52 @@ public:
 		banana->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam,banana->colorChange, 10.0f, 0, 'A',  1, colisionColor);
 		banana2->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20)-5, camara->posCam, banana2->colorChange , 10.0f, 0, 'A',  3, colisionColor);
 		
-		bridge->setPosX(104.01f);
+		bridge->setPosX(90.01f);
 		bridge->setPosZ(113.62f);
-		bridge->Draw(camara->vista, camara->proyeccion, terreno->Superficie(bridge->getPosX(), bridge->getPosZ())  + 5, camara->posCam, bridge->colorChange, 0.0f, 190, 'Y', 6, colisionColor);
+		bridge->Draw(camara->vista, camara->proyeccion, terreno->Superficie(bridge->getPosX(), bridge->getPosZ()) - 8, camara->posCam, bridge->colorChange, 10.0f, 190, 'A', 1, colisionColor);
 		
 		
 		//bridge2->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20)+1, camara->posCam, bridge2->colorChange, 10.0f, 100, 'Y',  10, colisionColor);
 		
 		roca->setPosX(104.79f);
 		roca->setPosZ(9.15f);
-		roca->Draw(camara->vista, camara->proyeccion, terreno->Superficie(roca->getPosX(), roca->getPosZ()), camara->posCam, roca->colorChange, 0.0f, 0, 'A', 4, colisionColor);
+		roca->Draw(camara->vista, camara->proyeccion, terreno->Superficie(roca->getPosX(), roca->getPosZ()), camara->posCam, roca->colorChange, 10.0f, 0, 'A', 4, colisionColor);
 		
 		Piramide->setPosX(-99.5f);
 		Piramide->setPosZ(-75.3f);
-		Piramide->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Piramide->getPosX(),Piramide->getPosZ()), camara->posCam, Piramide->colorChange, 0.0f, 0, 'A', 2, colisionColor);
+		Piramide->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Piramide->getPosX(),Piramide->getPosZ()), camara->posCam, Piramide->colorChange, 10.0f, 0, 'A', 2, colisionColor);
 		
 		Pozo->setPosX(-69.60f);
 		Pozo->setPosZ(-49.06f);
-		Pozo->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Pozo->getPosX(), Pozo->getPosZ()) , camara->posCam, Pozo->colorChange, 0.0f, 0, 'A', 2, colisionColor);
+		Pozo->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Pozo->getPosX(), Pozo->getPosZ()) , camara->posCam, Pozo->colorChange, 10.0f, 0, 'A', 2, colisionColor);
 		
 		Casa->setPosX(-32.97f);
 		Casa->setPosZ(-114.07f);
-		Casa->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Casa->getPosX(), Casa->getPosZ()), camara->posCam, Casa->colorChange, 0.0f, 0, 'A', 1.5, colisionColor);
+		Casa->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Casa->getPosX(), Casa->getPosZ()), camara->posCam, Casa->colorChange, 10.0f, 0, 'A', 1.5, colisionColor);
 		
 		Casa2->setPosX(-20.55f);
 		Casa2->setPosZ(-44.99f);
-		Casa2->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Casa2->getPosX(), Casa2->getPosZ()), camara->posCam, Casa2->colorChange, 0.0f, 0, 'A', 1.5, colisionColor);
+		Casa2->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Casa2->getPosX(), Casa2->getPosZ()), camara->posCam, Casa2->colorChange, 10.0f, 0, 'A', 1.5, colisionColor);
 		
 		Casa3->setPosX(-37.30f);
 		Casa3->setPosZ(-11.49f);
-		Casa3->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Casa3->getPosX(), Casa3->getPosZ()), camara->posCam, Casa3->colorChange, 0.0f, 0, 'A', 1.5, colisionColor);
+		Casa3->Draw(camara->vista, camara->proyeccion, terreno->Superficie(Casa3->getPosX(), Casa3->getPosZ()), camara->posCam, Casa3->colorChange, 10.0f, 0, 'A', 1.5, colisionColor);
 		
+		CasaExp->setPosX(48);
+		CasaExp->setPosZ(-8);
+		CasaExp->Draw(camara->vista, camara->proyeccion, terreno->Superficie(CasaExp->getPosX(), CasaExp->getPosZ()), camara->posCam, Casa3->colorChange, 10.0f, 0, 'Y', 1, colisionColor);
+
 		stump->setPosX(6.0f);
 		stump->setPosZ(-55.0f);
-		stump->Draw(camara->vista, camara->proyeccion, terreno->Superficie(stump->getPosX(), stump->getPosZ()) - 1, camara->posCam, stump->colorChange, 0.0f, 0, 'A', 1, colisionColor);
+		stump->Draw(camara->vista, camara->proyeccion, terreno->Superficie(stump->getPosX(), stump->getPosZ()) - 1, camara->posCam, stump->colorChange, 10.0f, 0, 'A', 1, colisionColor);
 		
 		tree->setPosX(76.0f);
 		tree->setPosZ(-56.0f);
-		tree->Draw(camara->vista, camara->proyeccion, terreno->Superficie(tree->getPosX(), tree->getPosZ()), camara->posCam, tree->colorChange, 0.0f, 0, 'A', 1, colisionColor);
+		tree->Draw(camara->vista, camara->proyeccion, terreno->Superficie(tree->getPosX(), tree->getPosZ()), camara->posCam, tree->colorChange, 10.0f, 0, 'A', 1, colisionColor);
 		
 		lamp->setPosX(-60.0f);
 		lamp->setPosZ(-82.0f);
-		lamp->Draw(camara->vista, camara->proyeccion, terreno->Superficie(lamp->getPosX(), lamp->getPosZ()), camara->posCam, lamp->colorChange, 0.0f, 0, 'A', 1, colisionColor);
+		lamp->Draw(camara->vista, camara->proyeccion, terreno->Superficie(lamp->getPosX(), lamp->getPosZ()), camara->posCam, lamp->colorChange, 10.0f, 0, 'A', 1, colisionColor);
 		
 		cuerno->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20), camara->posCam, cuerno->colorChange, 10.0f, 0, 'A', 1, colisionColor);
 		//Cart->Draw(camara->vista, camara->proyeccion, terreno->Superficie(0, 20) + 5, camara->posCam, Cart->colorChange, 10.0f, 0, 'A', 0.5, colisionColor);
@@ -758,11 +806,11 @@ public:
 
 		if (posicionX > demonPx)
 		{
-			demonPx += 0.05;
+			demonPx += 0.07;
 		}
 		if (posicionX < demonPx)
 		{
-			demonPx -= 0.05;
+			demonPx -= 0.07;
 		}
 
 		if (posicionZ > demonPz)
@@ -920,6 +968,10 @@ public:
 		coords->DrawText(-0.8f, 0.1f, "PosCamZ: " + posZ.str(), 0.01f);
 		//textos->DrawText(-0.8f, 0.3f, "Tiempo: " + textos->Time(tiempo), 0.01f);
 
+		if (CuadBoxCollision(56,142,79,101,camara->getPoint())) {
+			texto->DrawText(-0.8f, 0.3f, "Saliste del limite ", 0.01f);
+		}
+
 		tiempo -= 0.01f;
 		TurnOffAlphaBlending();
 
@@ -1034,6 +1086,33 @@ public:
 			audiohitdemon = false;
 			demon->colorChange = 0;
 		}
+		return collition;
+	}
+
+	bool CuadBoxCollision(float zminus, float zplus, float xminus, float xplus, float* point) {
+		bool collition = false;
+
+		float distancialimitleft = point[0] - xplus;
+		float distancialimitRight = xminus - point[0];
+		float distancialimitDown = zminus - point[1];
+		float distancialimitUp = zplus - point[1];
+
+		if (distancialimitleft < 0 && distancialimitRight < 0 && distancialimitDown < 0 && distancialimitUp > 0) {
+			collition = true;
+		}
+
+		//if (distancialimitRight > 0) {
+		//	collition = true;
+		//}
+
+		//if (distancialimitUp > 0) {
+		//	collition = true;
+		//}
+
+		//if (distancialimitDown < 0) {
+		//	collition = true;
+		//}
+
 		return collition;
 	}
 
